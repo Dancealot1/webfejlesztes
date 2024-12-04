@@ -4,11 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bognár Dániel">
+    <meta name="description" content="Mindful Minds weboldala">
     <link rel="icon" type="image/png" sizes="32x32" href="kepek/favicon/fav-icon-balance.png">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="mindfulnessstylesheet.css">
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
     <title>Mindfulness - órák</title>
+    <style>
+        label.error {
+            color: #FB3A3A;
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,7 +31,7 @@
 
         <nav class="orak">
             <ul class="menu">
-                <li><a class="orak" href="mindfulness.html">Kezdőlap</a></li>
+                <li><a class="orak" href="index.html">Kezdőlap</a></li>
                 <li><a class="orak" href="gyakorlatok.html">Gyakorlatok</a></li>
                 <li><a class="orak" href="orak.html" id="activepage">Órák</a></li>
                 <li><a class="orak" href="webshop.html">Webshop</a></li>
@@ -48,7 +60,7 @@
             <div class="bemutatkozas">
                 <p>Egy kicsit rólunk:</p>
 
-                <img class="reka-kep" src="kepek/baratok/barat3-csajszi.jpg" alt="Farkas Réka">
+                <img class="reka-kep kepek" src="kepek/baratok/barat3-csajszi.jpg" alt="Farkas Réka">
                 <p class="reka">Hali, én <span class="vastag">Farkas Réka</span> vagyok, 26 éves. Én először a
                     Mindfulnessről 2020-ban hallottam.
                     Ugye akkor
@@ -61,7 +73,7 @@
                     a yogába én egy nagyon jó választás lennék számodra, de ha a meditáció érdekel abban szintúgy tidok
                     neked segíteni.</p>
 
-                <img class="aron-kep" src="kepek/baratok/barat1-szokecsavo.jpg" alt="Pásztor Áron">
+                <img class="aron-kep kepek" src="kepek/baratok/barat1-szokecsavo.jpg" alt="Pásztor Áron">
                 <p class="aron">
                     Szia, engem <span class="vastag">Pásztor Áronnak</span> hívnak. 26 éves vagyok. Én a mindfulnessel
                     és a meditációval az egyetemi
@@ -76,7 +88,7 @@
                     választás lehetek számodra.
                 </p>
 
-                <img class="botond-kep" src="kepek/baratok/barat2-barnacsavo.jpg" alt="Hegedűs Botond">
+                <img class="botond-kep kepek" src="kepek/baratok/barat2-barnacsavo.jpg" alt="Hegedűs Botond">
                 <p class="botond">
                     Szervusz, engem <span class="vastag">Hegedűs Botond</span>nak szólítanak, de kérlek hívj Botinak. 28
                     éves vagyok. Lehet
@@ -158,7 +170,8 @@
             </div>
 
             <div class="jelentkezes">
-                <form method="post" action="https://rf.uni-corvinus.hu/webfejlesztes/receive.php">
+                <form method="post" action="https://rf.uni-corvinus.hu/webfejlesztes/receive.php" id="myform" novalidate>
+
                     <table class="table-jelentkezes">
                         <tr>
                             <td class="jel-ker" colspan="2">JELENTKEZÉS</td>
@@ -167,11 +180,10 @@
                         <tr>
                             <td class="jel-szem">
                                 <p><label class="kontener">
-                                        <input type="radio" name="fajta" value="szemelyes"><span
-                                            class="checkmark"></span>Személyes
+                                        <input type="radio" name="fajta" value="szemelyes" id="input-szemelyes"><span class="checkmark"></span>Személyes
                                     </label></p>
                                 <hr class="vonal">
-                                <p><label class="kontener">
+                                <p id="szemelyes-oszlop"><label class="kontener">
                                         <input type="radio" name="hossz" value="30p"><span class="checkmark"></span>30
                                         perc<br>
                                     </label>
@@ -184,68 +196,72 @@
 
                             <td class="jel-csop">
                                 <p><label class="kontener">
-                                        <input type="radio" name="fajta" value="csoportos"><span
-                                            class="checkmark"></span>Csoportos
+                                        <input type="radio" name="fajta" value="csoportos" id="input-csoportos"><span class="checkmark"></span>Csoportos
                                     </label></p>
                                 <hr class="vonal">
 
-                                <p>
-                                    <label class="kontener">
-                                        <input type="radio" name="hossz" value="30p"><span class="checkmark"></span>30
-                                        perc
-                                    </label><br>
-                                    <label class="kontener">
-                                        <input type="radio" name="hossz" value="60p"><span class="checkmark"></span>60
-                                        perc
-                                    </label>
-                                </p>
-                                <hr class="vonal">
+                                <div id="csoportos-oszlop">
 
-                                <p>
-                                    Létszám<br>
-                                    <label class="kontener">
-                                        <input type="radio" name="letszam" value="2-3"><span
-                                            class="checkmark"></span>2-3<br>
-                                    </label>
-                                    <label class="kontener">
-                                        <input type="radio" name="letszam" value="4-8"><span
-                                            class="checkmark"></span>4-8
-                                    </label><br>
-                                    <label class="kontener">
-                                        <input type="radio" name="letszam" value="9-12"><span
-                                            class="checkmark"></span>9-12
-                                    </label><br>
-                                    <label class="kontener">
-                                        <input type="radio" name="letszam" value="13-15"><span
-                                            class="checkmark"></span>13-15
-                                    </label><br>
-                                    <label class="kontener">
-                                        <input type="radio" name="letszam" value="16-20"><span
-                                            class="checkmark"></span>16-20
-                                    </label><br>
-                                </p>
+                                    <p>
+                                        <label class="kontener">
+                                            <input type="radio" name="hossz" value="30p"><span class="checkmark"></span>30
+                                            perc
+                                        </label><br>
+                                        <label class="kontener">
+                                            <input type="radio" name="hossz" value="60p"><span class="checkmark"></span>60
+                                            perc
+                                        </label>
+                                    </p>
+                                    <hr class="vonal">
+
+                                    <p>
+                                        Létszám<br>
+                                        <label class="kontener">
+                                            <input type="radio" name="letszam" value="2-3" id="input-letszam"><span class="checkmark"></span>2-3<br>
+                                        </label>
+                                        <label class="kontener">
+                                            <input type="radio" name="letszam" value="4-8"><span class="checkmark"></span>4-8
+                                        </label><br>
+                                        <label class="kontener">
+                                            <input type="radio" name="letszam" value="9-12"><span class="checkmark"></span>9-12
+                                        </label><br>
+                                        <label class="kontener">
+                                            <input type="radio" name="letszam" value="13-15"><span class="checkmark"></span>13-15
+                                        </label><br>
+                                        <label class="kontener">
+                                            <input type="radio" name="letszam" value="16-20"><span class="checkmark"></span>16-20
+                                        </label><br>
+                                    </p>
+                                </div>
 
                             </td>
                         </tr>
 
                         <tr>
                             <td colspan="2">
-                                <p>
-                                    Dátum<br>
-                                    <input type="datetime-local" name="datum" required>
+                                <p class="jelentkezes-kozepre">
+                                    <label for="nev">Név</label><br>
+                                    <input type="text" name="nev" id="nev" size="22">
                                 </p>
 
-                                <p>Telefonszám <span class="teloszam">(formátum: +36123456789)</span><br>
-                                    <input type="tel" name="telszam" value="+36"
-                                        pattern="^\+36\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{4}$" placeholder="+36 20 123 4567"
-                                        required>
+
+
+                                <p class="jelentkezes-kozepre"><label for="telszam">Telefonszám <span class="teloszam">(formátum:
+                                            +36123456789)</span></label><br>
+                                    <input type="tel" name="telszam" id="telszam" size="22" value="+36" placeholder="+36 20 123 4567">
                                 </p>
-                                <p>Email cím<br>
-                                    <input type="email" name="email" size="22" required>
+                                <p class="jelentkezes-kozepre"><label for="email">Email cím</label><br>
+                                    <input type="email" name="email" id="email" size="22">
                                 </p>
-                                <p>
-                                    Egyéb üzenet<br>
-                                    <textarea name="uzenet" rows="8" cols="35"></textarea>
+
+                                <p class="jelentkezes-kozepre">
+                                    <label for="datum">Dátum</label><br>
+                                    <input type="datetime-local" name="datum" id="datum">
+                                </p>
+
+                                <p class="jelentkezes-kozepre">
+                                    <label for="uzenet">Egyéb üzenet</label><br>
+                                    <textarea name="uzenet" id="uzenet" rows="8" cols="35"></textarea>
                                 </p>
                             </td>
                         </tr>
@@ -255,7 +271,7 @@
                                 <input class="myButton" type="submit" value="Jelentkezés">
                             </td>
                             <td class="gombok">
-                                <input class="myButton" type="reset" value="Alaphelyzet">
+                                <input class="myButton" type="reset" value="Alaphelyzet" id="alaphelyzet">
                             </td>
                         </tr>
                     </table>
@@ -268,10 +284,113 @@
 
         </div>
 
+
+
+
+
+
+
+
+
+
+        <section class="center slider slick">
+            <div><img src="kepek/fotoalbum-orak/fotoalbum1.jpg" alt="1-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 1"></div>
+            <div><img src="kepek/fotoalbum-orak/fotoalbum2.jpg" alt="2-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 2"></div>
+            <div><img src="kepek/fotoalbum-orak/fotoalbum3.jpg" alt="3-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 3"></div>
+            <div><img src="kepek/fotoalbum-orak/fotoalbum4.jpg" alt="4-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 4"></div>
+            <div><img src="kepek/fotoalbum-orak/fotoalbum5.jpg" alt="5-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 5"></div>
+            <div><img src="kepek/fotoalbum-orak/fotoalbum6.jpg" alt="6-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 6"></div>
+            <div><img src="kepek/fotoalbum-orak/fotoalbum8.jpg" alt="8-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 8"></div>
+            <div><img src="kepek/fotoalbum-orak/fotoalbum9.jpg" alt="9-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 9"></div>
+            <div><img src="kepek/fotoalbum-orak/fotoalbum10.jpg" alt="10-es számú kép: Illusztráció a yoga/meditáció óráról" title="yoga/meditáció 10"></div>
+        </section>
+
         <footer class="orak">
+            <div class="hirlevel">
+                <form method="post" action="#" id="feliratkozas">
+                    <p>Írdd be az e-mail címedet és iratkozz fel a hírlevelünkre!</p>
+                    <p><input type="email" name="e-mail" size="27" placeholder="kissjakab123@email.com" required><br>
+                        <input type="submit" value="Feliratkozás" class="feliratkozas-orak">
+                    </p>
+                </form>
+            </div>
+
             Bognár Dániel 2024 - Az oldal tanulmányi célú
         </footer>
     </div>
+
+    <script src="mindfulnessscript.js"></script>
+
+
+    <script src="slick-1.8.1/slick/slick.js" type="text/javascript" charset="UTF-8"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".center").slick({
+                dots: true,
+                infinite: true,
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    },
+                    {
+
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            arrows: false,
+                            centerPadding: '20px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+            jQuery.validator.addMethod("phone", function (value) {
+                return /^\+36[0-9]{8,10}$/.test(value);
+            }, " Rossz a formula.");
+
+            $("#myform").validate({
+                rules: {
+                    fajta: "required",
+                    nev: "required",
+                    telszam: {
+                        required: true,
+                        phone: true,
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    datum: "required",
+
+                },
+                messages: {
+                    nev: " Írd be a neved!",
+                    telszam: {
+                        required: " Add meg a telefonszámot!",
+                    },
+                    email: " Kérlek valós email címet adj meg!",
+                    datum: " Add meg a foglalási dátummot!",
+                    fajta: " Add meg a jelentkezés típusát!",
+                },
+
+            });
+        });
+    </script>
+
 </body>
 
 </html>

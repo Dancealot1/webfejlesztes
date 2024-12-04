@@ -16,6 +16,8 @@ body {
     background-color: 	#fffbf6;
 }
 
+
+
 .container{
     
 }
@@ -29,7 +31,7 @@ body {
 .kezdolap-kep{
     max-width: 100%;
     height: 100vh;
-    background-image: url("kepek/Kezdolap-kep.png");
+    background-image: url("kepek/Kezdolap-kep.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -326,7 +328,7 @@ iframe{
 }
 
 .video-szoveg{
-    text-align: justify;
+    text-align: center;
     padding: 0 15px;
 }
 
@@ -342,6 +344,7 @@ iframe{
     color: #adadad;
     font-style: italic;
     padding: 4px 25px;
+    text-align: center;
 }
 
 span.mindful-movement{
@@ -416,7 +419,8 @@ ul.tipusok{
     max-width: 100%;
     margin: auto;
     margin-top: 10px;
-    border: solid #a58b78 5px
+    border: solid #a58b78 5px;
+    padding: 0 !important;
 }
 
 /* Áron */
@@ -429,7 +433,8 @@ ul.tipusok{
     max-width: 100%;
     margin: auto;
     margin-top: 50px;
-    border: solid #a58b78 5px
+    border: solid #a58b78 5px;
+    padding: 0 !important;
 }
 
 /* Botond */
@@ -442,7 +447,8 @@ ul.tipusok{
     max-width: 100%;
     margin: auto;
     margin-top: 50px;
-    border: solid #a58b78 5px
+    border: solid #a58b78 5px;
+    padding: 0 !important;
 }
 
 
@@ -584,10 +590,12 @@ table#csoportos th.percek{
 .jelentkezes{
     margin-top: 100px;
     padding: 0 20px;
+    display: flex;
+    justify-content: center;
 }
 
 table.table-jelentkezes{
-    width: 100%;
+    width: 320px;
     border-collapse: collapse;
     border-radius: 8px;
     box-shadow: 0 0px 10px black;
@@ -611,6 +619,10 @@ table.table-jelentkezes td{
 span.teloszam{
     font-size: 0.82rem;
     color: #8a8a8a;
+}
+
+.jelentkezes-kozepre{
+    text-align: center;
 }
 
 table.table-jelentkezes tr td.jel-szem{
@@ -678,6 +690,11 @@ table.table-jelentkezes tr td.jel-csop{
     background: white;
 }
 
+/* a nem kipipált oldal eltüntetése */
+#szemelyes-oszlop, #csoportos-oszlop{
+    display: none;
+}
+
 
 hr.vonal{
     border-top: 1px solid #6F4E37;
@@ -712,6 +729,35 @@ td.gombok{
 	top:1px;
 }
 
+/* Galéria */
+.slider{
+    width: 80%;
+    min-width: 400px;
+    margin: 100px auto;
+}
+
+.slick-slide{
+    margin: 0px 5px;
+    transition: all ease-in-out .3s;
+    opacity: .2;
+}
+
+.slick-active{
+    opacity: .5;
+}
+
+.slick-current{
+    opacity: 1;
+}
+
+.slick-slide img{
+    width: 100%;
+}
+
+.slick-prev:before, .slick-next:before{
+    color: black !important;
+}
+
 
 
 /* WEBSHOP */
@@ -723,6 +769,11 @@ td.gombok{
 }
 
 /* Spoiler kép */
+.spoilerContainer{
+    margin-top: 100px;
+    margin-bottom: 175px;
+}
+
 .spoiler{
     height: 200px;
     width: 290px;
@@ -753,6 +804,15 @@ td.gombok{
     transform: scale(1);
 }
 
+/* Webshop */
+.webshop-kepek {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+
 
 
 /* Rendelés űrlap */
@@ -762,17 +822,75 @@ td.gombok{
 }
 
 table.rendeles{
-    border: #c20e08 5px solid;
-    border-collapse: collapse;
     margin-top: 50px;
-    box-shadow: 0 0 10px #c20e08 inset;
-    background-color: #be7370;
+    box-shadow: 0 0 10px #000000 ;
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 320px;
 }
 
 .rendeles td{
+    padding: 10px 0;
+    text-align: center;
+}
 
-    padding: 10px 25px;
-    
+.rendeles td.rendeles-elso{
+    border-radius: 8px 0;
+    font-size: 1.9rem;
+}
+
+.rendeles td.rendeles-utolso-bal{
+    border-radius: 0 0 0 8px;
+}
+
+.rendeles td.rendeles-utolso-jobb{
+    border-radius: 0 0 8px 0;
+}
+
+.gombok-rendeles{
+    padding: 10px 0 !important;
+}
+
+.rendeles-alcim{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Rendelés gombok */
+.rendeles-gombok {
+	
+	background:linear-gradient(to bottom, #ffffff 5%, #c20e08 100%);
+	background-color:#ffffff;
+	border-radius:17px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #180c0d;
+}
+.rendeles-gombok:hover {
+	background:linear-gradient(to bottom, #c20e08 5%, #ffffff 100%);
+	background-color:#f4453f;
+}
+.rendeles-gombok:active {
+	position:relative;
+	top:1px;
 }
 
 
@@ -789,7 +907,233 @@ footer{
     box-shadow: 0 -5px 20px black;
 }
 
-/* 600 px felett felülírjuk  */
-@media (min-width: 600px) {
-
+.hirlevel{
+    margin-bottom: 50px;
+    font-weight: bold;
+    font-style: normal;
+    
 }
+
+/* Kezdőlap feliratkozó gomb */
+.feliratkozas-kezdolap {
+	box-shadow:inset 0px -3px 7px 0px #29bbff;
+	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+	background-color:#2dabf9;
+	border-radius:3px;
+	border:1px solid #0b0e07;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+    margin-top: 10px;
+}
+.feliratkozas-kezdolap:hover {
+	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+	background-color:#0688fa;
+}
+.feliratkozas-kezdolap:active {
+	position:relative;
+	top:1px;
+}
+
+/* Gyakorlatok feliratkozó gomb */
+.feliratkozas-gyakorlatok {
+	box-shadow:inset 0px -3px 7px 0px #21130a;
+	background:linear-gradient(to bottom, #4d3f40 5%, #301f21 100%);
+	background-color:#4d3f40;
+	border-radius:3px;
+	border:1px solid #151a0d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #61300d;
+    margin-top: 10px;
+}
+.feliratkozas-gyakorlatok:hover {
+	background:linear-gradient(to bottom, #301f21 5%, #4d3f40 100%);
+	background-color:#301f21;
+}
+.feliratkozas-gyakorlatok:active {
+	position:relative;
+	top:1px;
+}
+
+/* Órák feliratkozó gomb */
+.feliratkozas-orak {
+	box-shadow:inset 0px -3px 7px 0px #21130a;
+	background:linear-gradient(to bottom, #a58b78 5%, #3b312b 100%);
+	background-color:#a58b78;
+	border-radius:3px;
+	border:1px solid #151a0d;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #61300d;
+    margin-top: 10px;
+}
+.feliratkozas-orak:hover {
+	background:linear-gradient(to bottom, #3b312b 5%, #a58b78 100%);
+	background-color:#3b312b;
+}
+.feliratkozas-orak:active {
+	position:relative;
+	top:1px;
+}
+
+/* Webshop feliratkozó gomb */
+.feliratkozas-webshop {
+	box-shadow:inset 0px -3px 7px 0px #1f0100;
+	background:linear-gradient(to bottom, #960300 5%, #301f21 100%);
+	background-color:#960300;
+	border-radius:3px;
+	border:1px solid #0a0d06;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:9px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #a13230;
+    margin-top: 10px;
+}
+.feliratkozas-webshop:hover {
+	background:linear-gradient(to bottom, #301f21 5%, #960300 100%);
+	background-color:#301f21;
+}
+.feliratkozas-webshop:active {
+	position:relative;
+	top:1px;
+}
+
+/* webshop */
+.kosar {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    box-shadow: 0 0 10px #000000 ;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    justify-content: center;
+    margin: 50px auto 0 auto;
+}
+
+.containerLeft, .containerRight {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.kepek{
+    padding: 0 16px;
+}
+
+.mennyisegAllito{
+    display: flex;
+    justify-content: center;
+}
+
+#mennyisegFeher, #mennyisegFekete{
+    width: 30px;
+}
+
+.pulcsiArazas{
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.25rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#kosarErtek{
+    font-weight: bold;
+}
+
+.pulcsik{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.gombocska{
+    cursor: pointer;
+}
+
+/* Tablet */
+@media only screen and (min-width: 600px){
+    .kepek {
+        max-width: 350px;
+        padding: 0;
+    }
+
+    .bemutatkozas{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .article {
+        max-width: 500px;
+        width: 80%;
+        margin: auto;
+    }
+}
+
+
+/* Szgép */
+@media only screen and (min-width: 768px){
+    .containerRight, .containerRight {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .containerLeft, .containerLeft {
+        flex-direction: row-reverse;
+        align-items: center;
+    }
+
+    .article {
+        max-width: 1000px;
+        width: 80%;
+        margin: auto;
+    }
+
+    .kepek {
+        max-width: 350px;
+        padding: 0;
+    }
+
+    .containerLeft > div, .containerRight > div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bemutatkozas{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .pulcsik{
+        flex-direction: row;
+        margin: auto;
+        gap: 150px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+
+

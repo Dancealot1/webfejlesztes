@@ -1,0 +1,12 @@
+Oldal készítője: Bognár Dániel
+
+URL:
+
+Téma: Mindfulnessről szól. Bemutatja a meditációt és milyen gyakorlatokkal lehet végezni.
+
+A 2. oldalon van egy js kód, ami a radiobuttonokhoz kapcsolódik. Ha a személyes bepipálom, akkor megjelennek a hozzá kapcsolódó további gombok. Ugyanígy a csoportos.
+A negyedik oldalt van egy másik js kód, ami a webshophoz kapcsolódik. Számolja a kosár árát.
+
+EXO 2 nevű font típust használtam. Mindenhol.
+
+Az utolsó oldalt a SPOILER képet egy yt tutorial alapján készítettem.

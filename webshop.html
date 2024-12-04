@@ -4,10 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Bognár Dániel">
+    <meta name="description" content="Mindful Minds weboldala">
     <link rel="icon" type="image/png" sizes="32x32" href="kepek/favicon/isonu.png">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="mindfulnessstylesheet.css">
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="slick-1.8.1/slick/slick.css">
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="slick-1.8.1/slick/slick.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="jquery-validation-1.19.5/dist/jquery.validate.min.js"></script>
+    <style>
+        label.error {
+            color: #FB3A3A;
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+
+
     <title>Eyes On You</title>
 </head>
 
@@ -17,7 +32,7 @@
 
         <nav class="webshop">
             <ul class="menu">
-                <li><a class="webshop" href="mindfulness.html">Kezdőlap</a></li>
+                <li><a class="webshop" href="index.html">Kezdőlap</a></li>
                 <li><a class="webshop" href="gyakorlatok.html">Gyakorlatok</a></li>
                 <li><a class="webshop" href="orak.html">Órák</a></li>
                 <li><a class="webshop" href="webshop.html" id="activepage">Webshop</a></li>
@@ -43,12 +58,61 @@
                     fiatalítani a lelkedet! Hordjátok szeretettel és egészséggel!</p>
 
                 <p>A jövőben készülünk több ruhát és designt kidobni Nektek.</p>
+            </div>
+
+
+            <div class="spoilerContainer">
+
 
                 <div class="spoiler">
                     <p>SPOILER:<br> Kövi ruha ZOKNI lesz</p>
                 </div>
+            </div>
 
 
+
+            <div class="pulcsik">
+                <div>
+                    <section class="webshop-kepek slider">
+                        <div><img src="kepek/webshop/Feher-elol.png" alt="Fehér Eyes on You-s pulcsi elölről" title="Fehér színű Eyes on You-s pulcsi"></div>
+                        <div><img src="kepek/webshop/Feher-hatul.png" alt="Fehér Eyes on You-s pulcsi hátulról" title="Fehér színű Eyes on You-s pulcsi"></div>
+                    </section>
+
+                    <div class="pulcsiArazas">
+                        20.000 Forint
+                    </div>
+
+                    <div class="mennyisegAllito">
+
+                        <form method="post" action="#">
+                            <input type="button" value="-" id="minuszFeher" class="gombocska">
+                            <input type="number" value="0" id="mennyisegFeher" min="0">
+                            <input type="button" value="+" id="pluszFeher" class="gombocska">
+                        </form>
+                    </div>
+                </div>
+
+
+
+                <div>
+                    <section class="webshop-kepek slider">
+                        <div><img src="kepek/webshop/Fekete-elol.png" alt="Fekete Eyes on You-s pulcsi elölről" title="Fekete színű Eyes on You-s pulcsi"></div>
+                        <div><img src="kepek/webshop/Fekete-hatul.png" alt="Fekete Eyes on You-s pulcsi hátulról" title="Fekete színű Eyes on You-s pulcsi"></div>
+                    </section>
+
+                    <div class="pulcsiArazas">
+                        22.000 Forint
+                    </div>
+
+                    <div class="mennyisegAllito">
+
+                        <form method="post" action="#">
+                            <input type="button" value="-" id="minuszFekete" class="gombocska">
+                            <input type="number" value="0" id="mennyisegFekete" min="0">
+                            <input type="button" value="+" id="pluszFekete" class="gombocska">
+                        </form>
+                    </div>
+                </div>
             </div>
 
 
@@ -58,108 +122,202 @@
 
 
 
-        <div class="rendeles-container">
-            <form method="post" action="https://rf.uni-corvinus.hu/webfejlesztes/receive.php">
-                <table class="rendeles">
-                    <tr>
-                        <td colspan="2">
-                            <p>Személyes adatok</p>
+            <div class="kosar">
 
-                            <p>Név<br>
-                            <input type="text" name="nev" size="20" required></p>
+                <div class="kosarText">
+                    Jelenlegi rendelés értéke:
+                </div>
+                <div class="kosarText" id="kosarErtek">0</div>
+                <div class="kosarText">Forint</div>
+            </div>
 
-                            <p>
-                                Telefonszám<br>
-                                <input type="tel" name="telszam" size="20" value="+36"
-                                        pattern="^\+36\s?[0-9]{2}\s?[0-9]{3}\s?[0-9]{4}$" placeholder="+36 20 123 4567"
-                                        required>
-                            </p>
 
-                            <p>Email cím<br>
-                                <input type="email" name="email" size="20" required>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <p>
-                                Szállítási adatok
-                            </p>
+            <div class="rendeles-container">
+                <form method="post" action="https://rf.uni-corvinus.hu/webfejlesztes/receive.php" id="myform" novalidate>
+                    <table class="rendeles">
+                        <tr>
+                            <td colspan="2" class="rendeles-elso">
+                                <div class="vastag">Rendelés és Fizetés</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p class="rendeles-alcim">Személyes adatok</p>
 
-                            <p>
-                                Ország<br>
-                                <select name="orszag" required>
-                                    <option value="magyarorszag">Magyarország</option>
-                                    <option value="romania">Románia</option>
-                                    <option value="szlovakia">Szlovákia</option>
-                                    <option value="ausztria">Ausztria</option>
-                                    <option value="csehorszag">Csehország</option>
-                                    <option value="nemetorszag">Németország</option>
-                                </select>
-                            </p>
+                                <p><label for="nev">Név</label><br>
+                                    <input type="text" name="nev" id="nev" size="27">
+                                </p>
 
-                            <p>
-                                Település<br>
-                                <input type="text" name="telepules" size="20" required>
-                            </p>
+                                <p><label for="email">Email cím</label><br>
+                                    <input type="email" name="email" id="email" size="27">
+                                </p>
 
-                            <p>
-                                Irányítószám<br>
-                                <input type="text" name="iranyitoszam" size="20" required>
-                            </p>
+                                <p>
+                                    <label for="telszam">Telefonszám</label><br>
+                                    <input type="tel" name="telszam" id="telszam" size="20" value="+36" placeholder="+36 20 123 4567">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p class="rendeles-alcim">
+                                    Szállítási adatok
+                                </p>
 
-                            <p>
-                                Utca, házszám<br>
-                                <input type="text" name="utca/hazszam" size="20" required>
-                            </p>
+                                <p>
+                                    <label for="orszag">Ország</label><br>
+                                    <select name="orszag" id="orszag">
+                                        <option value="magyarorszag">Magyarország</option>
+                                        <option value="romania">Románia</option>
+                                        <option value="szlovakia">Szlovákia</option>
+                                        <option value="ausztria">Ausztria</option>
+                                        <option value="csehorszag">Csehország</option>
+                                        <option value="nemetorszag">Németország</option>
+                                    </select>
+                                </p>
 
-                            <p>
-                                Másodlagos cím (emelet, ajtó)<br>
-                                <input type="text" name="masodlagos" size="20" placeholder="pl.: 2. emelet 1. ajtó">
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <p>
-                                Fizetés (csak bankkártya)
-                            </p>
+                                <p>
+                                    <label for="telepules">Település</label><br>
+                                    <input type="text" name="telepules" id="telepules" size="20">
+                                </p>
 
-                            <p>
-                                Kártyaszám<br>
-                                <input type="text" name="kartyaszam" size="20" required>
-                            </p>
+                                <p>
+                                    <label for="iranyitoszam">Irányítószám</label><br>
+                                    <input type="text" name="iranyitoszam" id="iranyitoszam" size="20">
+                                </p>
 
-                            <p>
-                                Lejárati dátum<br>
-                                <input type="text" name="lejarati" size="20" required>
-                            </p>
+                                <p>
+                                    <label for="utcaHazszam">Utca, házszám</label><br>
+                                    <input type="text" name="utcaHazszam" id="utcaHazszam" size="20">
+                                </p>
 
-                            <p>
-                                CVC kód<br>
-                                <input type="text" name="cvc" size="20" required>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="gombok">
-                            <input type="submit" value="Rendelés">
-                        </td>
-                        <td class="gombok">
-                            <input type="reset" value="Törlés">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </div>
-        
+                                <p>
+                                    <label for="masodlagos">Másodlagos cím (emelet, ajtó)</label><br>
+                                    <input type="text" name="masodlagos" id="masodlagos" size="20" placeholder="pl.: 2. emelet 1. ajtó">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p class="rendeles-alcim">
+                                    Fizetés (csak bankkártya)
+                                </p>
+
+                                <p>
+                                    <label for="kartyaszam">Kártyaszám</label><br>
+                                    <input type="text" name="kartyaszam" id="kartyaszam" size="20">
+                                </p>
+
+                                <p>
+                                    <label for="lejarati">Lejárati dátum</label><br>
+                                    <input type="text" name="lejarati" id="lejarati" size="20">
+                                </p>
+
+                                <p>
+                                    <label for="cvc">CVC kód</label><br>
+                                    <input type="password" name="cvc" id="cvc" size="20">
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="gombok rendeles-utolso-bal gombok-rendeles">
+                                <input class="rendeles-gombok" type="submit" value="Rendelés">
+                            </td>
+                            <td class="gombok rendeles-utolso-jobb gombok-rendeles">
+                                <input class="rendeles-gombok" type="reset" value="Törlés">
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
 
         </div>
 
         <footer class="webshop">
+            <div class="hirlevel">
+                <form method="post" action="#" id="feliratkozas">
+                    <p>Írdd be az e-mail címedet és iratkozz fel a hírlevelünkre!</p>
+                    <p><input type="email" name="e-mail" size="27" placeholder="kissjakab123@email.com" required><br>
+                        <input type="submit" value="Feliratkozás" class="feliratkozas-webshop">
+                    </p>
+                </form>
+            </div>
+
             Bognár Dániel 2024 - Az oldal tanulmányi célú
         </footer>
     </div>
+
+    <script src="mindfulnessscript.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".webshop-kepek").slick({
+                dots: true,
+                infinite: true,
+                centerMode: true,
+                centerPadding: '60px',
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                responsive: [
+                    {
+                        breakpoint: 600,
+                        settings: {
+                            centerPadding: '20px',
+                            arrows: false,
+                        }
+                    },
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            centerPadding: '40px',
+
+                        }
+                    }
+                ]
+            });
+
+            jQuery.validator.addMethod("phone", function (value) {
+                return /^\+36[0-9]{8,10}$/.test(value);
+            }, " Rossz a formula.");
+
+            $("#myform").validate({
+                rules: {
+                    nev: "required",
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    telszam: {
+                        required: true,
+                        phone: true,
+                    },
+                    telepules: "required",
+                    iranyitoszam: "required",
+                    utcaHazszam: "required",
+                    kartyaszam: "required",
+                    lejarati: "required",
+                    cvc: "required",
+                },
+                messages: {
+                    nev: " Add meg a nevedet!",
+                    email: " Kérlek valós emailt adj meg!",
+                    telszam: {
+                        required: " Add meg a telefonszámot!",
+                    },
+                    telepules: " Add meg a települést!",
+                    iranyitoszam: " Add meg az irányítószámot!",
+                    utcaHazszam: " Add meg az utcát és házszámot!",
+                    kartyaszam: " Add meg a kártyaszámot!",
+                    lejarati: " Add meg a kártya lejáratát!",
+                    cvc: " Add meg a cvc kódot!",
+                },
+
+            });
+
+        });
+    </script>
 </body>
 
 </html>
